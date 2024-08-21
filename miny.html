@@ -5,39 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MinesAI</title>
     <style>
-
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            min-height: 100vh; /* Изменено с 100% на min-height */
             font-family: Arial, sans-serif;
             background: url('https://telegra.ph/file/5fa96f1bae82a9f777bfa.png') no-repeat center center fixed;
-                background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    overflow: hidden; 
-    color: white;
-    text-align: center;
-/*body {
-    background: url('https://telegra.ph/file/9e24a0a9643bde7df0a78.jpg') no-repeat center center fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    overflow: hidden; 
-    color: white;
-    text-align: center;
-}*/
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            text-align: center;
+        }
 
         .header {
             display: flex;
@@ -55,15 +39,6 @@
             font-size: 3rem;
             margin: 10px 0;
         }
-        .mint img {
-            width: 65%;
-            margin-top: -100px;
-        }
-        .subheader img {
-            width: 50%;
-            margin-top: -15px;
-            margin-bottom: 10px;
-        }
         .grid {
             margin-top: 15%;
             background-color: black;
@@ -76,7 +51,6 @@
             box-shadow: 0 0 10px 10px orange;
         }
         .grid div {
-margin-top: 15%;
             border-radius: 10px;
             width: 50px;
             height: 50px;
@@ -121,7 +95,6 @@ margin-top: 15%;
             border-radius: 50%;
         }
         .controls button {
-/*            margin-top: -80px;*/
             width: 60%;
             background: none;
             border: none;
@@ -132,41 +105,56 @@ margin-top: 15%;
             width: 80%;
         }
         #signalButton {
-            margin-top: -90px;
-    width: 250px; /* Установите нужную ширину кнопки */
-    height: 250px; /* Установите нужную высоту кнопки */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#signalButton img {
-    width: 100%; 
-    height: auto;
-}
-
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #signalButton img {
+            width: 100%;
+            height: auto;
+        }
         #here {
             margin-top: -100px;
-    width: 220px; /* Установите нужную ширину кнопки */
- /* Установите нужную высоту кнопки */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+            width: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #here img {
+            width: 100%;
+            height: auto;
+        }
 
-#here img {
-    width: 100%; 
-    height: auto;
-}
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .grid {
+                grid-template-columns: repeat(4, 40px);
+                grid-template-rows: repeat(4, 40px);
+                gap: 3px;
+                padding: 5px;
+                box-shadow: 0 0 8px 8px orange;
+            }
+            .controls input[type=range] {
+                width: 150px;
+            }
+            #signalButton {
+                width: 200px;
+                height: 200px;
+            }
+            #here {
+                width: 180px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <a href="index.html"><img src="https://telegra.ph/file/4b88b5c11d2bac27e6c4b.png" alt="Back"></a>
-        <!-- <img src="https://telegra.ph/file/10b539bde0f1336c0873a.png" alt="Menu"> -->
     </div>
-    <!-- <div class="mint"><img src="https://telegra.ph/file/2fc2c05dade5541c34f22.png" alt="mint"></div> -->
-    <!-- <div class="subheader"><img src="https://telegra.ph/file/eff04243c5ae4f8d036ff.png"></div> -->
     <div class="grid" id="grid"></div>
     <div class="controls">
         <label for="slider">NUMBER OF TRAPS</label>
