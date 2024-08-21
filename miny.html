@@ -5,43 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MinesAI</title>
     <style>
+
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100vh;
+            height: 100%;
             font-family: Arial, sans-serif;
             background: url('https://telegra.ph/file/5fa96f1bae82a9f777bfa.png') no-repeat center center fixed;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            color: white;
-            text-align: center;
-        }
+                background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden; 
+    color: white;
+    text-align: center;
+/*body {
+    background: url('https://telegra.ph/file/9e24a0a9643bde7df0a78.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden; 
+    color: white;
+    text-align: center;
+}*/
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 10px;
+            padding: 20px;
         }
         .header img {
             width: 40px;
             height: 40px;
+            margin: 10px;
         }
-
         h1 {
-            font-size: 2rem;
-            margin: 20px 0;
+            font-size: 3rem;
+            margin: 10px 0;
         }
-
+        .mint img {
+            width: 65%;
+            margin-top: -100px;
+        }
+        .subheader img {
+            width: 50%;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
         .grid {
-            margin-top: 20px;
             background-color: black;
             display: grid;
             grid-template-columns: repeat(5, 50px);
@@ -59,10 +82,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: background-color 0.5s;
         }
-
         .controls {
             margin-top: 20px;
             display: flex;
@@ -84,7 +106,7 @@
             opacity: 0.7;
             transition: opacity .15s ease-in-out;
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 2rem;
         }
         .controls input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -93,9 +115,11 @@
             height: 20px;
             background: #6200ea;
             cursor: pointer;
+            font-size: 1.2rem;
             border-radius: 50%;
         }
         .controls button {
+/*            margin-top: -80px;*/
             width: 60%;
             background: none;
             border: none;
@@ -106,56 +130,41 @@
             width: 80%;
         }
         #signalButton {
-            width: 200px;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #signalButton img {
-            width: 100%;
-            height: auto;
-        }
-        #here {
-            margin-top: 20px;
-            width: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #here img {
-            width: 100%;
-            height: auto;
-        }
+            margin-top: -90px;
+    width: 250px; /* Установите нужную ширину кнопки */
+    height: 250px; /* Установите нужную высоту кнопки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .grid {
-                grid-template-columns: repeat(4, 40px);
-                grid-template-rows: repeat(4, 40px);
-                gap: 3px;
-                padding: 5px;
-                box-shadow: 0 0 8px 8px orange;
-            }
-            .controls input[type=range] {
-                width: 150px;
-            }
-            #signalButton {
-                width: 150px;
-                height: 150px;
-            }
-            #here {
-                width: 150px;
-            }
-        }
+#signalButton img {
+    width: 100%; 
+    height: auto;
+}
+
+        #here {
+            margin-top: -100px;
+    width: 220px; /* Установите нужную ширину кнопки */
+ /* Установите нужную высоту кнопки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#here img {
+    width: 100%; 
+    height: auto;
+}
     </style>
 </head>
 <body>
     <div class="header">
         <a href="index.html"><img src="https://telegra.ph/file/4b88b5c11d2bac27e6c4b.png" alt="Back"></a>
+        <!-- <img src="https://telegra.ph/file/10b539bde0f1336c0873a.png" alt="Menu"> -->
     </div>
+    <!-- <div class="mint"><img src="https://telegra.ph/file/2fc2c05dade5541c34f22.png" alt="mint"></div> -->
+    <!-- <div class="subheader"><img src="https://telegra.ph/file/eff04243c5ae4f8d036ff.png"></div> -->
     <div class="grid" id="grid"></div>
     <div class="controls">
         <label for="slider">NUMBER OF TRAPS</label>
